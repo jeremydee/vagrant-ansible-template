@@ -10,10 +10,10 @@
   apt: pkg=python-software-properties state=latest
 
 - name: init | Add ppa Repository for latest stable php
-  apt_repository: repo='ppa:ondrej/php5'
+  apt_repository: repo='ppa:ondrej/php5-5.6'
 
-- name: init | Add ppa Repository for mysql 5.6
-  apt_repository: repo='ppa:ondrej/mysql-5.6'
+- name: init | Add ppa Repository for mysql
+  apt_repository: repo='ppa:ondrej/mysql-5.7'
 
 - name: init | Add ppa Repository for composer
   apt_repository: repo='ppa:duggan/composer'
@@ -21,11 +21,11 @@
 - name: init | Add ppa Repository for nginx
   apt_repository: repo='ppa:nginx/stable'
   
-- name: init | Update apt
-  apt: update_cache=yes
-
-- name: init | Upgrade apt (safe)
-  apt: upgrade=safe
+#- name: init | Update apt
+#  apt: update_cache=yes
+#
+#- name: init | Upgrade apt (safe)
+#  apt: upgrade=safe
 
 - name: Set /etc/timezone to {{ timezone }}
   template: dest=/etc/timezone src=files/timezone.tpl

@@ -1,2 +1,5 @@
+code/
 .vagrant/
 vagrant_ansible_*
+.idea/
+*.log

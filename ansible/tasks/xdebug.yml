@@ -1,0 +1,18 @@
+---
+- lineinfile:
+    state: present
+    dest: /etc/php5/mods-available/xdebug.ini
+    regexp: "^xdebug.remote_enable"
+    line: "xdebug.remote_enable = on"
+
+- lineinfile:
+    state: present
+    dest: /etc/php5/mods-available/xdebug.ini
+    regexp: "^xdebug.remote_connect_back"
+    line: "xdebug.remote_connect_back = on"
+
+- lineinfile:
+    state: present
+    dest: /etc/php5/mods-available/xdebug.ini
+    regexp: "^xdebug.idekey"
+    line: 'xdebug.idekey = "PhpStorm"'

@@ -11,4 +11,5 @@
 - name: ssh | setup ssh access for www-data user
   authorized_key: user=www-data key="{{ item }}"
   with_file:
-    - public_keys/enter_key_name
+    - public_keys/my_public_key
+  when: my_public_key|default("") != ""
