@@ -1,19 +1,20 @@
 # all the variables you need to set are listed here
-vm_provider_name        = "virtualbox" # 'virtualbox' 'parallels'
-vm_box_name             = "ubuntu/trusty64" # change this to any box you want
-vm_box_memory           = "1024"
-box_name                = "test3" # an arbitrary name to call your local VM
-local_host_name         = "test3.vm"
+vm_provider_name        = "virtualbox"      # Required 'virtualbox' 'parallels'
+vm_box_name             = "ubuntu/trusty64" # Required - Change this to any box you want
+vm_box_memory           = "1024"            # Required
+box_name                = "test3"           # Required - An arbitrary name to call your local VM
+local_host_name         = "test3.vm"        # Required - Hosts file entry
+local_ip                = "192.168.33.102"  # Required
 test_host_name          = ""
 test_ip                 = ""
 prod_host_name          = ""
 prod_ip                 = ""
 digital_ocean_token     = "" # V2 API
-mysql_db_names          = ["database1"] # BUG - accepts of one array element only
-mysql_root_pass         = "rootpass"
-mysql_app_user          = "appuser"
-mysql_app_pass          = "apppass"
-my_public_key           = "" #optional contents of ~/.ssh/id_rsa.pub
+mysql_db_names          = ["database1"]     # Required - BUG - accepts single element array only
+mysql_root_pass         = "rootpass"        # Required
+mysql_app_user          = "appuser"         # Required
+mysql_app_pass          = "apppass"         # Required
+my_public_key           = ""                # Optional contents of ~/.ssh/id_rsa.pub
 
 # previous comment is not really true
 # you will likely want to set the box type/image types below too
@@ -30,7 +31,7 @@ Vagrant.configure("2") do |config|
         local.vm.box = vm_box_name
         local.vm.hostname = local_host_name
 
-        local.vm.network :private_network, ip: "192.168.33.102"
+        local.vm.network :private_network, ip: local_ip
 
         local.vm.synced_folder "./", "/vagrant", owner: "www-data", group: "www-data"
 
