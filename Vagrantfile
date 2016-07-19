@@ -1,5 +1,5 @@
 # all the variables you need to set are listed here
-vm_provider_name        = "virtualbox"      # Required 'virtualbox' 'parallels'
+vm_provider_name        = "virtualbox"      # Required - virtualbox, parallels, etc.
 vm_box_name             = "ubuntu/trusty64" # Required - Change this to any box you want
 vm_box_memory           = "1024"            # Required
 box_name                = "test3"           # Required - An arbitrary name to call your local VM
