@@ -41,7 +41,7 @@ Vagrant.configure("2") do |config|
                 application_env: "development",
                 host_name: local_host_name,
                 mysql_root_pass: mysql_root_pass,
-                mysql_db_names: mysql_db_names,
+                mysql_db_names: "#{mysql_db_names.to_json}",
                 mysql_app_user: mysql_app_user,
                 mysql_app_pass: mysql_app_pass,
                 my_public_key: my_public_key
